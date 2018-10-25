@@ -167,7 +167,7 @@ def partisan_symmetry(pvec,n=200,plots=False):
         plt.yticks(ys,zs)
         plt.title("Seats -- Votes: Symmetry Gaps")
     
-	plt.show()    
+        plt.show()    
 
     
 
