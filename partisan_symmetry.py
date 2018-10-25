@@ -206,6 +206,9 @@ def partisan_symmetry(pvec,n=200,plots=False):
         bps += abs(seats[t] - (1-seats[-(t+1)]))
         
     bps = 2*bps/n
+    
+    
+
         
         
     
@@ -217,6 +220,15 @@ def partisan_symmetry(pvec,n=200,plots=False):
     
     print(cn,sorted(en))
     print(mean)
+    
+    if l==3:
+        area3 = abs(bn[0]-(1-bn[2]))+abs(bn[1]-(1-bn[1]))+abs(bn[2]-(1-bn[0]))
+        area3=area3/3
+        print("Area3?",area3)
+        
+        
+    return area
+        
 
     
 #Add plots with B_n endpoints need to keep track of
@@ -231,6 +243,22 @@ def partisan_symmetry(pvec,n=200,plots=False):
 #
     
 partisan_symmetry([.1,.2,.3,.4,.41,.42,.43,.44,.45,.46,.6],10000,False)
+
+
+
+
+a=[]
+for i in range(1,20):
+    a.append([])
+    for j in range(1,20):
+            a[i-1].append(partisan_symmetry([5*i/100,.40,5*j/100],10000,False))
+
+plt.imshow(a)
+plt.colorbar()
+plt.xticks(range(19),[x/20 for x in range(1,20)])
+plt.yticks(range(19),[x/20 for x in range(1,20)])
+plt.title("Partisan Symmetry Difference for (x,.45,y)")
+plt.show()
 
         
 #partisan_symmetry([.283, .283, .288, .288, .38, .384, .497, .51, .51],1000)
