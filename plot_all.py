@@ -13,5 +13,6 @@ for k in range(1,100):
     plt.yticks(range(99),[x/20 for x in range(1,100)])
     plt.title("Partisan Symmetry Difference for (x,"+str(k)+",y)")
     plt.savefig("./ps"+str(k)+".png")
+    plt.close()
     print("figure",k,"done")
     
